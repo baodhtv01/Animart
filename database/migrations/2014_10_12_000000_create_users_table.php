@@ -17,10 +17,18 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            //imageUrl
+            $table->string('imageUrl')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('phone')->nullable();
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
+            //soft delete
+            $table->softDeletes();
         });
     }
 
